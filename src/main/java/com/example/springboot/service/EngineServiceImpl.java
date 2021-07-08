@@ -1,7 +1,6 @@
 package com.example.springboot.service;
 
 import com.example.springboot.entities.Engine;
-import com.example.springboot.entities.SteeringWheel;
 import com.example.springboot.exception.ResourceNotFoundException;
 import com.example.springboot.repository.EngineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class EngineServiceImpl implements EngineService{
         Engine engine = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Engine not found for id = " + id));
         engine.setType(engineDetails.getType());
-//        engine.setGears(engineDetails.getGears());
+        engine.setGears(engineDetails.getGears());
         return ResponseEntity.ok(this.repository.save(engine));
     }
 

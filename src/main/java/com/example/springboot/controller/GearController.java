@@ -1,9 +1,8 @@
 package com.example.springboot.controller;
 
-
-import com.example.springboot.entities.Manual;
+import com.example.springboot.entities.Gear;
 import com.example.springboot.exception.ResourceNotFoundException;
-import com.example.springboot.service.ManualServiceImpl;
+import com.example.springboot.service.GearServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,31 +14,31 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/manual/car/")
-public class ManualController {
+@RequestMapping("/api/gear/")
+public class GearController {
 
     @Autowired
-    private ManualServiceImpl service;
+    private GearServiceImpl service;
 
     @GetMapping(value = "read")
-    public List<Manual> getAll() {
+    public List<Gear> getAll() {
         return service.getAll();
     }
 
     @PostMapping(value = "create", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public Optional<Manual> create(@RequestBody Manual manual) {
-        return  service.create(manual);
+    public Optional<Gear> create(@RequestBody Gear gear) {
+        return  service.create(gear);
     }
 
     @GetMapping(value = "read/{id}")
-    public ResponseEntity<Manual> getById(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
+    public ResponseEntity<Gear> getById(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
         return service.getById(id);
     }
 
     @PostMapping(value = "update/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Manual> update(@PathVariable(value = "id") Long id,
-                                         @Validated @RequestBody Manual manualDetails) throws ResourceNotFoundException {
-        return service.update(id, manualDetails);
+    public ResponseEntity<Gear> update(@PathVariable(value = "id") Long id,
+                                         @Validated @RequestBody Gear gearDetails) throws ResourceNotFoundException {
+        return service.update(id, gearDetails);
     }
 
     @PostMapping("delete/{id}")

@@ -14,9 +14,12 @@ import java.util.Optional;
 
 
 @Service
-public class CarCarServiceImpl implements CarService {
+public class CarServiceImpl implements CarService {
+
     @Autowired
     private CarRepository repository;
+
+
 
     @Override
     public List<Car> getAll() {
@@ -44,6 +47,7 @@ public class CarCarServiceImpl implements CarService {
         car.setMnfModel(carDetails.getMnfModel());
         car.setModelName(carDetails.getModelName());
         car.setSteeringWheel(carDetails.getSteeringWheel());
+        car.setEngine(carDetails.getEngine());
         car.setEngine(carDetails.getEngine());
         return ResponseEntity.ok(this.repository.save(car));
     }

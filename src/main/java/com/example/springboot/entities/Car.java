@@ -15,21 +15,14 @@ import javax.persistence.*;
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private String mnfModel;
     private String modelName;
 
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Engine engine;
-
-
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ENGINE_ID")
     private Engine engine;
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "STWH_ID")

@@ -2,7 +2,7 @@ package com.example.springboot.controller;
 
 import com.example.springboot.entities.Car;
 import com.example.springboot.exception.ResourceNotFoundException;
-import com.example.springboot.service.CarCarServiceImpl;
+import com.example.springboot.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import java.util.Optional;
 public class CarController {
 
     @Autowired
-    private CarCarServiceImpl service;
+    private CarServiceImpl service;
 
     //get cars
     @GetMapping(value = "read", consumes = {MediaType.APPLICATION_JSON_VALUE})
